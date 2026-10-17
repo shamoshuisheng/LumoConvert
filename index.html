@@ -29,10 +29,7 @@
   }
   a { color: var(--accent-2); text-decoration: none; }
   a:hover { text-decoration: underline; }
-
   .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-  /* Language switcher */
   .lang-bar {
     display: flex; justify-content: flex-end; gap: 6px;
     padding: 20px 0 0;
@@ -54,8 +51,6 @@
     color: #fff; border-color: transparent;
     font-weight: 600;
   }
-
-  /* Hero */
   .hero {
     padding: 48px 0 40px;
     text-align: center;
@@ -74,7 +69,6 @@
     margin-bottom: 10px;
   }
   .hero p { color: var(--muted); font-size: 15px; max-width: 480px; margin: 0 auto; }
-
   .contact-bar {
     margin: 32px auto 0;
     background: var(--surface);
@@ -86,7 +80,6 @@
   }
   .contact-bar .label { color: var(--muted); font-size: 13px; }
   .contact-bar .email { font-weight: 600; font-size: 15px; }
-
   section { padding: 40px 0; border-bottom: 1px solid var(--border); }
   section:last-of-type { border-bottom: none; }
   h2 {
@@ -97,7 +90,6 @@
     content: ""; width: 4px; height: 18px; border-radius: 2px;
     background: var(--accent-grad);
   }
-
   .feat-grid {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
   }
@@ -115,7 +107,6 @@
     display: flex; align-items: center; justify-content: center;
   }
   .feat .icon svg { width: 16px; height: 16px; stroke: var(--accent-2); fill: none; stroke-width: 2; }
-
   .faq-item {
     border: 1px solid var(--border);
     border-radius: 10px;
@@ -148,7 +139,6 @@
   .faq-item.open .faq-a { max-height: 600px; }
   .faq-a-inner strong { color: var(--text); font-weight: 600; }
   .faq-a-inner a { color: var(--accent-2); }
-
   .info-block {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -158,7 +148,6 @@
   .info-block p { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
   .info-block p:last-child { margin-bottom: 0; }
   .info-block strong { color: var(--text); }
-
   footer {
     padding: 32px 0 48px;
     text-align: center;
@@ -166,7 +155,6 @@
   }
   footer .links { margin-bottom: 10px; }
   footer .links a { margin: 0 10px; }
-
   @media (max-width: 600px) {
     .hero { padding: 32px 0 28px; }
     .hero h1 { font-size: 22px; }
@@ -178,13 +166,8 @@
 </style>
 </head>
 <body>
-
 <div class="wrap">
-
-  <!-- Language switcher -->
   <div class="lang-bar" id="langBar"></div>
-
-  <!-- Hero -->
   <div class="hero">
     <div class="logo-mark">
       <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -201,43 +184,34 @@
       <a href="mailto:shamoshuisheng@163.com" style="font-size:14px;font-weight:600;" data-i18n="contactBtn"></a>
     </div>
   </div>
-
-  <!-- Features -->
   <section>
     <h2 data-i18n="featTitle"></h2>
     <div class="feat-grid" id="featGrid"></div>
   </section>
-
-  <!-- FAQ -->
   <section>
     <h2 data-i18n="faqTitle"></h2>
     <div id="faqList"></div>
   </section>
-
-  <!-- Subscription -->
   <section>
     <h2 data-i18n="subTitle"></h2>
     <div class="info-block" id="subBlock"></div>
   </section>
-
-  <!-- Footer -->
   <footer>
     <div class="links">
-      <a href="#" onclick="showToast('Placeholder');return false;" data-i18n="privacy"></a>
-      <a href="#" onclick="showToast('Placeholder');return false;" data-i18n="terms"></a>
-      <a href="mailto:shamoshuisheng@163.com" data-i18n="contactUs"></a>
+      <a href="https://shamoshuisheng.github.io/privacy" target="_blank" data-i18n="privacy"></a>
+      <a href="https://shamoshuisheng.github.io/userTerms" target="_blank" data-i18n="terms"></a>
+      <a href="https://shamoshuisheng.github.io/subscription" target="_blank" data-i18n="contactUs"></a>
     </div>
     <div>© 2026 LumoConvert. All rights reserved.</div>
   </footer>
-
 </div>
-
 <script>
 var EMAIL = "shamoshuisheng@163.com";
+const URL_PRIVACY = "https://shamoshuisheng.github.io/privacy";
+const URL_TERMS = "https://shamoshuisheng.github.io/userTerms";
+const URL_SUBSCRIPTION = "https://shamoshuisheng.github.io/subscription";
 
-// ===== TRANSLATIONS =====
 var I18N = {};
-
 I18N["zh-CN"] = {
   langName: "简体中文",
   heroTitle: "LumoConvert 技术支持",
@@ -245,71 +219,34 @@ I18N["zh-CN"] = {
   contactLabel: "遇到问题？发邮件给我们",
   contactBtn: "发送邮件 →",
   featTitle: "常用功能指引",
-  feats: [
-    { icon: "down", title: "视频压缩 / 格式转换", desc: "选择视频工具 → 导入文件 → 调整分辨率与码率 → 导出。大文件处理需保持 App 在前台。" },
-    { icon: "play", title: "M3U8 下载转 MP4", desc: "粘贴 M3U8 链接 → 开始下载 → 自动合并为 MP4。支持后台下载，断网后可恢复。" },
-    { icon: "music", title: "伴奏提取 / 人声消除", desc: "选择音频 → 导入歌曲 → 选择「人声消除」→ 等待 AI 处理完成。处理时长约为歌曲长度的 0.5–1 倍。" },
-    { icon: "doc", title: "PDF 互转", desc: "文档工具 → 选择 PDF ↔ Word/Excel/PPT → 导入文件 → 导出。扫描件暂不支持 OCR。" }
+  faqTitle: "常见问题 FAQ",
+  featureCards:[
+    {icon:"down",title:"视频压缩 / 格式转换",desc:"选择视频工具 → 导入文件 → 调整分辨率与码率 → 导出。大文件处理需保持 App 在前台。"},
+    {icon:"play",title:"M3U8 下载转 MP4",desc:"粘贴 M3U8 链接 → 开始下载 → 自动合并为 MP4。支持后台下载，断网后可恢复。"},
+    {icon:"music",title:"伴奏提取·人声消除",desc:"选择音频 → 导入歌曲 → 选择「人声消除」→ 等待 AI 处理完成。处理时长约为歌曲长度的 0.5–1 倍。"},
+    {icon:"doc",title:"PDF 互转",desc:"文档工具 → 选择 PDF ↔ Word/Excel/PPT → 导入文件 → 导出。扫描件暂不支持 OCR。"}
   ],
-  faqTitle: "常见问题",
-  faqs: [
-    { q: "我的文件会上传到服务器吗？", a: "<strong>不会。</strong>LumoConvert 所有音视频、图片、文档处理均在您的设备本地完成，使用内置 FFmpeg 引擎，文件不会离开您的手机。" },
-    { q: "M3U8 下载失败怎么办？", a: "请依次排查：<br>1. 确认 M3U8 链接完整有效（在浏览器中可直接播放）；<br>2. 部分网站有防盗链/鉴权，需在 App 内浏览器打开页面后嗅探；<br>3. 确认网络稳定，大文件建议在 Wi-Fi 环境下下载；<br>4. 如仍失败，请将链接和报错截图发送至 " + EMAIL + "。" },
-    { q: "视频压缩后画质下降明显？", a: "压缩程度与文件大小成反比。如需更高画质：在导出设置中将<strong>码率</strong>调至原视频的 80% 以上，分辨率保持原尺寸，格式选择 H.264。" },
-    { q: "伴奏提取效果不理想？", a: "人声消除基于 AI 分离算法，以下情况效果会打折扣：<br>· 原始音频音质差、有混响或现场噪音；<br>· 人声与伴奏混音严重（如部分 Live 版歌曲）；<br>· 歌曲中含和声或多声部。<br>建议使用高音质音源（320kbps 以上）。" },
-    { q: "导出的文件保存在哪里？", a: "导出完成后，您可以选择：<strong>保存到相册</strong>（视频/图片）、<strong>存储到「文件」</strong>（任意格式）、或<strong>分享</strong>给其他 App。所有导出文件均可在 App 内「导出记录」中找到。" },
-    { q: "处理大视频时 App 闪退或卡顿？", a: "4K 或超长视频对设备内存要求较高。建议：<br>1. 处理前关闭后台其他 App；<br>2. 分段处理长视频；<br>3. 降低输出分辨率（如 1080p）；<br>4. 确保剩余存储空间不少于文件大小的 2 倍。" },
-    { q: "Pro 订阅如何退款？", a: "订阅通过 Apple 官方渠道处理，退款需通过 Apple 申请：<br>前往 <a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a> → 登录 Apple ID → 找到对应订阅 → 申请退款。" },
-    { q: "如何取消自动续订？", a: "在 iPhone 上打开 <strong>设置 → 你的 Apple ID → 订阅</strong> → 找到 LumoConvert → 取消订阅。取消后当前周期内仍可使用全部功能。" }
+  faqs:[
+    {q:"所有文件都会上传到服务器吗？",a:"<strong>不会。</strong>LumoConvert全部处理逻辑运行在本机FFmpeg引擎，音视频、图片、文档不会上传云端，保护你的隐私。"},
+    {q:"M3U8下载失败怎么办？",a:"请依次排查：<br>1. 确认 M3U8 链接完整有效（在浏览器中可直接播放）；<br>2. 部分网站有防盗链/鉴权，需在 App 内浏览器打开页面后嗅探；<br>3. 确认网络稳定，大文件建议在 Wi‑Fi 环境下下载；<br>4. 如仍失败，请将链接和报错截图发送至 " + EMAIL + "。"},
+    {q:"视频压缩之后画质很差如何调整？",a:"压缩程度与文件大小成反比。如需更高画质：在导出设置中将<strong>码率</strong>调至原视频的 80% 以上，分辨率保持原尺寸，格式选择 H.264。"},
+    {q:"人声消除效果不理想？",a:"伴奏提取受原始混音影响，完全混缩的歌曲无法做到100%分离效果，尽量使用原版立体声音源。"},
+    {q:"处理完的文件保存在哪里？",a:"处理输出文件保存在App沙盒内，可在结果页面点击保存到系统相册/文件。卸载App会清除App沙盒内全部文件，请提前导出。"},
+    {q:"App闪退怎么办？",a:"请升级iOS到最新系统版本；如果处理超大文件，设备内存不足会造成闪退，建议拆分大文件再处理。"},
+    {q:"如何申请退款？",a:"所有订阅与内购退款由Apple负责处理，请前往App Store订单页面提交退款申请，开发者无退款权限。参考<a href='"+URL_SUBSCRIPTION+"' target='_blank'>订阅服务协议</a>"},
+    {q:"购买Pro之后换设备功能没解锁？",a:"请点击「恢复购买 Restore Purchase」，使用原先购买的Apple账号即可重新解锁权益。"}
   ],
-  subTitle: "订阅与权限",
-  subLines: [
+  subTitle:"订阅与权限",
+  subLines:[
     "<strong>免费版：</strong>可使用基础格式转换，导出带水印，每日有次数限制。",
     "<strong>Pro 订阅：</strong>解锁全部 46+ 工具，无水印、无次数限制，支持批量处理与自定义输出参数。",
     "<strong>自动续订：</strong>订阅到期前 24 小时自动扣费，可随时在 Apple ID 设置中取消。",
-    "<strong>隐私政策：</strong><a href='#' onclick=\"showToast('请替换为隐私政策链接');return false;\">查看完整隐私政策</a>"
+    "<strong>隐私政策：</strong><a href='"+URL_PRIVACY+"' target='_blank'>查看完整隐私政策</a>"
   ],
-  privacy: "隐私政策",
-  terms: "服务条款",
-  contactUs: "联系我们"
+  privacy:"隐私政策",
+  terms:"用户使用条款",
+  contactUs:"订阅服务协议"
 };
-
-I18N["en"] = {
-  langName: "English",
-  heroTitle: "LumoConvert Support",
-  heroDesc: "All-in-one converter for audio, video, images and documents. 100% on-device processing — nothing is uploaded.",
-  contactLabel: "Need help? Email us",
-  contactBtn: "Send Email →",
-  featTitle: "Quick Guides",
-  feats: [
-    { icon: "down", title: "Video Compress / Convert", desc: "Pick a video tool → import file → adjust resolution & bitrate → export. Keep the app in foreground for large files." },
-    { icon: "play", title: "M3U8 to MP4 Downloader", desc: "Paste an M3U8 URL → start download → auto-merges to MP4. Background download supported; resumes after disconnection." },
-    { icon: "music", title: "Vocal Remover / Karaoke", desc: "Pick audio → import song → select Vocal Remover → wait for AI processing. Takes ~0.5–1x the song length." },
-    { icon: "doc", title: "PDF Converter", desc: "Document tools → PDF ↔ Word/Excel/PPT → import → export. Scanned PDFs are not OCR-supported yet." }
-  ],
-  faqTitle: "FAQ",
-  faqs: [
-    { q: "Are my files uploaded to a server?", a: "<strong>No.</strong> All processing happens on your device using the built-in FFmpeg engine. Your files never leave your phone." },
-    { q: "M3U8 download fails. What should I do?", a: "Check in order:<br>1. Make sure the M3U8 URL is valid (plays in a browser);<br>2. Some sites use anti-leech/auth — open the page in the in-app browser first;<br>3. Use a stable Wi-Fi connection for large files;<br>4. If still failing, send the URL and error screenshot to " + EMAIL + "." },
-    { q: "Video quality dropped after compression?", a: "Compression trades quality for file size. For higher quality: set <strong>bitrate</strong> above 80% of the original, keep resolution, choose H.264. Higher bitrate = larger file." },
-    { q: "Vocal removal result isn't great?", a: "Vocal removal uses AI separation. Results may vary with:<br>· Low-quality source audio with reverb or live noise;<br>· Heavy vocal-instrumental mix (e.g. live versions);<br>· Harmonies or multiple vocal tracks.<br>Use high-quality audio (320kbps+) for best results." },
-    { q: "Where are my exported files saved?", a: "After export, you can choose to <strong>Save to Photos</strong> (video/image), <strong>Save to Files</strong> (any format), or <strong>Share</strong> to other apps. Find all exports in the in-app Export History." },
-    { q: "App crashes or lags on large videos?", a: "4K or very long videos need significant memory. Try:<br>1. Close other background apps first;<br>2. Process long videos in segments;<br>3. Lower output resolution (e.g. 1080p);<br>4. Ensure at least 2x file size of free storage." },
-    { q: "How do I get a refund for Pro?", a: "Subscriptions are handled by Apple. To request a refund:<br>Go to <a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a> → sign in with your Apple ID → find the subscription → request refund. Apple typically responds within 48 hours." },
-    { q: "How do I cancel auto-renewal?", a: "On your iPhone, go to <strong>Settings → your Apple ID → Subscriptions</strong> → find LumoConvert → Cancel Subscription. You'll keep Pro features until the current billing period ends." }
-  ],
-  subTitle: "Subscription & Access",
-  subLines: [
-    "<strong>Free:</strong> Basic conversion with watermark and daily usage limits.",
-    "<strong>Pro:</strong> Unlock all 46+ tools, no watermark, no limits, batch processing and custom output settings.",
-    "<strong>Auto-renewal:</strong> Charged 24 hours before the end of each period. Cancel anytime in your Apple ID settings.",
-    "<strong>Privacy Policy:</strong><a href='#' onclick=\"showToast('Replace with privacy policy URL');return false;\">View full privacy policy</a>"
-  ],
-  privacy: "Privacy Policy",
-  terms: "Terms of Service",
-  contactUs: "Contact Us"
-};
-
 I18N["zh-TW"] = {
   langName: "繁體中文",
   heroTitle: "LumoConvert 技術支援",
@@ -317,35 +254,69 @@ I18N["zh-TW"] = {
   contactLabel: "遇到問題？寄信給我們",
   contactBtn: "寄信 →",
   featTitle: "常用功能指引",
-  feats: [
-    { icon: "down", title: "影片壓縮 / 格式轉換", desc: "選擇影片工具 → 匯入檔案 → 調整解析度與位元率 → 匯出。大檔案處理需保持 App 在前景。" },
-    { icon: "play", title: "M3U8 下載轉 MP4", desc: "貼上 M3U8 連結 → 開始下載 → 自動合併為 MP4。支援背景下載，斷網後可續傳。" },
-    { icon: "music", title: "伴奏提取 / 人聲消除", desc: "選擇音訊 → 匯入歌曲 → 選擇「人聲消除」→ 等待 AI 處理完成。處理時間約為歌曲長度的 0.5–1 倍。" },
-    { icon: "doc", title: "PDF 互轉", desc: "文件工具 → 選擇 PDF ↔ Word/Excel/PPT → 匯入檔案 → 匯出。掃描件暫不支援 OCR。" }
+  faqTitle: "常見問題 FAQ",
+  featureCards:[
+    {icon:"down",title:"影片壓縮 / 格式轉換",desc:"選擇影片工具 → 匯入檔案 → 調整解析度與位元率 → 匯出。大檔案處理需保持 App 在前景。"},
+    {icon:"play",title:"M3U8 下載轉 MP4",desc:"貼上 M3U8 連結 → 開始下載 → 自動合併為 MP4。支援背景下載，斷網後可續傳。"},
+    {icon:"music",title:"伴奏提取·人聲消除",desc:"選擇音訊 → 匯入歌曲 → 選擇「人聲消除」→ 等待 AI 處理完成。處理時間約為歌曲長度的 0.5–1 倍。"},
+    {icon:"doc",title:"PDF 互轉",desc:"文件工具 → 選擇 PDF ↔ Word/Excel/PPT → 匯入檔案 → 匯出。掃描件暫不支援 OCR。"}
   ],
-  faqTitle: "常見問題",
-  faqs: [
-    { q: "我的檔案會上傳到伺服器嗎？", a: "<strong>不會。</strong>LumoConvert 所有音訊、影片、圖片、文件處理均在您的裝置本地完成，使用內建 FFmpeg 引擎，檔案不會離開您的手機。" },
-    { q: "M3U8 下載失敗怎麼辦？", a: "請依序排查：<br>1. 確認 M3U8 連結完整有效（在瀏覽器中可直接播放）；<br>2. 部分網站有防盜鏈/驗證，需在 App 內瀏覽器開啟頁面後擷取；<br>3. 確認網路穩定，大檔案建議在 Wi-Fi 環境下下載；<br>4. 如仍失敗，請將連結與錯誤截圖寄至 " + EMAIL + "。" },
-    { q: "影片壓縮後畫質下降明顯？", a: "壓縮程度與檔案大小成反比。如需更高畫質：在匯出設定中將<strong>位元率</strong>調至原影片的 80% 以上，解析度保持原尺寸，格式選擇 H.264。" },
-    { q: "伴奏提取效果不理想？", a: "人聲消除基於 AI 分離演算法，以下情況效果會打折：<br>· 原始音訊音質差、有混響或現場噪音；<br>· 人聲與伴奏混音嚴重（如部分 Live 版歌曲）；<br>· 歌曲中含和聲或多聲部。<br>建議使用高音質音源（320kbps 以上）。" },
-    { q: "匯出的檔案儲存在哪裡？", a: "匯出完成後，您可以選擇：<strong>儲存到照片</strong>（影片/圖片）、<strong>儲存到「檔案」</strong>（任意格式）、或<strong>分享</strong>給其他 App。所有匯出檔案均可在 App 內「匯出記錄」中找到。" },
-    { q: "處理大影片時 App 閃退或卡頓？", a: "4K 或超長影片對裝置記憶體要求較高。建議：<br>1. 處理前關閉背景其他 App；<br>2. 分段處理長影片；<br>3. 降低輸出解析度（如 1080p）；<br>4. 確保剩餘儲存空間不少於檔案大小的 2 倍。" },
-    { q: "Pro 訂閱如何退款？", a: "訂閱透過 Apple 官方管道處理，退款需透過 Apple 申請：<br>前往 <a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a> → 登入 Apple ID → 找到對應訂閱 → 申請退款。" },
-    { q: "如何取消自動續訂？", a: "在 iPhone 上打開 <strong>設定 → 你的 Apple ID → 訂閱</strong> → 找到 LumoConvert → 取消訂閱。取消後當前週期內仍可使用全部功能。" }
+  faqs:[
+    {q:"我的檔案會上傳到伺服器嗎？",a:"<strong>不會。</strong>LumoConvert全部處理在本機FFmpeg執行，影音、圖片、文件不會上傳雲端，保護您的隱私。"},
+    {q:"M3U8下載失敗該如何處理？",a:"請依序排查：<br>1. 確認 M3U8 連結完整有效（在瀏覽器中可直接播放）；<br>2. 部分網站有防盜鏈/驗證，需在 App 內瀏覽器打開頁面後擷取；<br>3. 確認網路穩定，大檔案建議在 Wi‑Fi 環境下下載；<br>4. 如仍失敗，請將連結與錯誤截圖寄至 " + EMAIL + "。"},
+    {q:"影片壓縮後畫質下降明顯？",a:"壓縮程度與檔案大小成反比。如需更高畫質：在匯出設定中將<strong>位元率</strong>調至原影片的 80% 以上，解析度保持原尺寸，格式選擇 H.264。"},
+    {q:"伴奏提取效果不理想？",a:"人聲消除基於 AI 分離演算法，完全混縮的歌曲無法做到百分之百分離，建議使用原版立體聲音源。"},
+    {q:"處理完成的檔案存在哪裡？",a:"輸出檔案存放在App沙盒，請手動儲存到系統檔案或相簿。解除安裝App會刪除沙盒全部資料，請務必先匯出。"},
+    {q:"App閃退怎麼辦？",a:"請更新iOS系統；處理超大檔案時記憶體不足會造成閃退，建議先分割大檔。"},
+    {q:"Pro 訂閱如何退款？",a:"訂閱透過 Apple 官方管道處理，退款需透過 Apple 申請：<br>前往 <a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a> → 登入 Apple ID → 找到對應訂閱 → 申請退款。詳見<a href='"+URL_SUBSCRIPTION+"' target='_blank'>訂閱服務協議</a>"},
+    {q:"更換裝置後Pro沒有解鎖？",a:"點擊「恢復購買 Restore Purchase」，使用原本購買的Apple帳號即可重新啟用付費權益。"}
   ],
-  subTitle: "訂閱與權限",
-  subLines: [
+  subTitle:"訂閱與權限",
+  subLines:[
     "<strong>免費版：</strong>可使用基礎格式轉換，匯出帶浮水印，每日有次數限制。",
     "<strong>Pro 訂閱：</strong>解鎖全部 46+ 工具，無浮水印、無次數限制，支援批次處理與自訂輸出參數。",
     "<strong>自動續訂：</strong>訂閱到期前 24 小時自動扣款，可隨時在 Apple ID 設定中取消。",
-    "<strong>隱私權政策：</strong><a href='#' onclick=\"showToast('請替換為隱私權政策連結');return false;\">檢視完整隱私權政策</a>"
+    "<strong>隱私權政策：</strong><a href='"+URL_PRIVACY+"' target='_blank'>檢視完整隱私權政策</a>"
   ],
-  privacy: "隱私權政策",
-  terms: "服務條款",
-  contactUs: "聯絡我們"
+  privacy:"隱私權政策",
+  terms:"使用者使用條款",
+  contactUs:"訂閱服務協議"
 };
-
+I18N["en-US"] = {
+  langName: "English",
+  heroTitle: "LumoConvert Support",
+  heroDesc: "All‑in‑one converter for audio, video, images and documents. 100% on‑device processing — nothing is uploaded.",
+  contactLabel: "Need help? Email us",
+  contactBtn: "Send Email →",
+  featTitle: "Quick Guides",
+  faqTitle: "FAQ",
+  featureCards:[
+    {icon:"down",title:"Video Compress / Convert",desc:"Pick a video tool → import file → adjust resolution & bitrate → export. Keep the app in foreground for large files."},
+    {icon:"play",title:"M3U8 to MP4 Downloader",desc:"Paste an M3U8 URL → start download → auto‑merges to MP4. Background download supported; resumes after disconnection."},
+    {icon:"music",title:"Vocal Remover",desc:"Pick audio → import song → select Vocal Remover → wait for AI processing. Takes ~0.5–1x the song length."},
+    {icon:"doc",title:"PDF Converter",desc:"Document tools → PDF ↔ Word/Excel/PPT → import → export. Scanned PDFs are not OCR‑supported yet."}
+  ],
+  faqs:[
+    {q:"Are my files sent to cloud servers?",a:"<strong>No.</strong> All processing runs locally via FFmpeg inside‑device. Your media and documents never get uploaded."},
+    {q:"M3U8 download fails. What should I do?",a:"Check in order:<br>1. Make sure the M3U8 URL is valid (plays in a browser);<br>2. Some sites use anti‑leech/auth — open the page in the in‑app browser first;<br>3. Use a stable Wi‑Fi connection for large files;<br>4. If still failing, send the URL and error screenshot to " + EMAIL + "."},
+    {q:"Video quality dropped after compression?",a:"Compression trades quality for file size. For higher quality: set <strong>bitrate</strong> above 80% of the original, keep resolution, choose H.264. Higher bitrate = larger file."},
+    {q:"Vocal removal result isn't great?",a:"Vocal removal uses AI separation. Results may vary with source audio. Fully‑mixed tracks cannot achieve perfect separation. Stereo original source is recommended."},
+    {q:"Where are my exported files saved?",a:"Generated files live inside app sandbox. Save them manually to Files / Photos. Uninstalling will erase sandbox data, export files beforehand."},
+    {q:"App crashes or lags on large videos?",a:"Update iOS to latest version. Huge files may trigger out‑of‑memory crash. Try splitting large source files."},
+    {q:"How do I get a refund for Pro?",a:"Subscriptions are handled by Apple. To request a refund:<br>Go to <a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a> → sign in with your Apple ID → find the subscription → request refund. Apple typically responds within 48 hours. See <a href='"+URL_SUBSCRIPTION+"' target='_blank'>Subscription Agreement</a>"},
+    {q:"Pro not working on new device?",a:"Tap Restore Purchase and log‑in with your original Apple account to unlock premium features again."}
+  ],
+  subTitle: "Subscription & Access",
+  subLines:[
+    "<strong>Free:</strong> Basic conversion with watermark and daily usage limits.",
+    "<strong>Pro:</strong> Unlock all 46+ tools, no watermark, no limits, batch processing and custom output settings.",
+    "<strong>Auto‑renewal:</strong> Charged 24 hours before the end of each period. Cancel anytime in your Apple ID settings.",
+    "<strong>Privacy Policy:</strong><a href='"+URL_PRIVACY+"' target='_blank'>View full privacy policy</a>"
+  ],
+  privacy:"Privacy Policy",
+  terms:"Terms of Service",
+  contactUs:"Subscription Agreement"
+};
 I18N["ja"] = {
   langName: "日本語",
   heroTitle: "LumoConvert サポート",
@@ -353,35 +324,34 @@ I18N["ja"] = {
   contactLabel: "お困りですか？メールください",
   contactBtn: "メールを送る →",
   featTitle: "クイックガイド",
-  feats: [
-    { icon: "down", title: "動画圧縮 / 変換", desc: "動画ツール選択 → ファイル読込 → 解像度・ビットレート調整 → 書き出し。大容量ファイルはアプリを前景に保ってください。" },
-    { icon: "play", title: "M3U8→MP4 ダウンローダー", desc: "M3U8 URL を貼り付け → ダウンロード開始 → MP4 に自動結合。バックグラウンドダウンロード対応、切断後も再開可能。" },
-    { icon: "music", title: "ボーカル除去 / カラオケ", desc: "音声選択 → 曲を読込 → 「ボーカル除去」を選択 → AI 処理を待つ。処理時間は曲の長さの約0.5〜1倍。" },
-    { icon: "doc", title: "PDF 変換", desc: "文書ツール → PDF ↔ Word/Excel/PPT → 読込 → 書き出し。スキャン画像の OCR には未対応。" }
+  faqTitle: "よくある質問 FAQ",
+  featureCards:[
+    {icon:"down",title:"動画圧縮 / 変換",desc:"動画ツール選択 → ファイル読込 → 解像度・ビットレート調整 → 書き出し。大容量ファイルはアプリを前景に保ってください。"},
+    {icon:"play",title:"M3U8→MP4 ダウンローダー",desc:"M3U8 URL を貼り付け → ダウンロード開始 → MP4 に自動結合。バックグラウンドダウンロード対応、切断後も再開可能。"},
+    {icon:"music",title:"ボーカル除去 / カラオケ",desc:"音声選択 → 曲を読込 → 「ボーカル除去」を選択 → AI 処理を待つ。処理時間は曲の長さの約0.5〜1倍。"},
+    {icon:"doc",title:"PDF 変換",desc:"文書ツール → PDF ↔ Word/Excel/PPT → 読込 → 書き出し。スキャン画像の OCR には未対応。"}
   ],
-  faqTitle: "よくある質問",
-  faqs: [
-    { q: "ファイルはサーバーにアップロードされますか？", a: "<strong>いいえ。</strong>すべての処理は端末内の FFmpeg エンジンで行われ、ファイルが外部に出ることは一切ありません。" },
-    { q: "M3U8 のダウンロードに失敗します", a: "順に確認してください：<br>1. M3U8 URL が有効か（ブラウザで再生できるか）；<br>2. 一部サイトはリーチ防止/認証があるため、アプリ内ブラウザでページを開いてから取得；<br>3. 安定した Wi-Fi 環境でのダウンロードを推奨；<br>4. それでも失敗する場合は URL とエラー画面のスクショを " + EMAIL + " までお送りください。" },
-    { q: "圧縮後の画質が気になります", a: "圧縮率とファイルサイズはトレードオフです。高画質にしたい場合：書き出し設定で<strong>ビットレート</strong>を元の80%以上に、解像度はそのまま、形式は H.264 を選択してください。" },
-    { q: "ボーカル除去の効果が思ったようにいきません", a: "AI 分離アルゴリズムの特性上、以下の場合は効果が下がります：<br>・元の音質が悪い、リバーブやノイズがある；<br>・ボーカルと楽器のミックスが強いライブ版など；<br>・ハーモニーや複数パートの歌声。<br>高音質音源（320kbps以上）の使用をおすすめします。" },
-    { q: "書き出したファイルはどこに保存されますか？", a: "書き出し後、<strong>写真に保存</strong>（動画/画像）、<strong>ファイルに保存</strong>（全形式）、<strong>共有</strong>のいずれかを選べます。すべての書き出し履歴はアプリ内「書き出し履歴」で確認できます。" },
-    { q: "大きな動画でアプリが落ちる・重い", a: "4K や長時間動画はメモリを多く消費します。以下をお試しください：<br>1. 処理前に他のアプリを終了；<br>2. 長い動画は分割して処理；<br>3. 出力解像度を下げる（例：1080p）；<br>4. 空き容量をファイルサイズの2倍以上確保。" },
-    { q: "Pro の返金はどうすればいいですか？", a: "サブスクリプションは Apple 経由で処理されます。返金は Apple に申請してください：<br><a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a> にアクセス → Apple ID でログイン → 該当サブスクを選択 → 返金をリクエスト。" },
-    { q: "自動更新をキャンセルするには？", a: "iPhone で <strong>設定 → Apple ID → サブスクリプション</strong> → LumoConvert を選択 → サブスクリプションをキャンセル。キャンセル後も現在の期間が終わるまで Pro 機能は使えます。" }
+  faqs:[
+    {q:"ファイルはサーバーにアップロードされますか？",a:"<strong>いいえ。</strong>すべての処理は端末内の FFmpeg エンジンで行われ、ファイルが外部に出ることは一切ありません。"},
+    {q:"M3U8 のダウンロードに失敗します",a:"順に確認してください：<br>1. M3U8 URL が有効か（ブラウザで再生できるか）；<br>2. 一部サイトはリーチ防止/認証があるため、アプリ内ブラウザでページを開いてから取得；<br>3. 安定した Wi‑Fi 環境でのダウンロードを推奨；<br>4. それでも失敗する場合は URL とエラー画面のスクショを " + EMAIL + " までお送りください。"},
+    {q:"圧縮後画質が悪い",a:"圧縮率とファイルサイズはトレードオフです。高画質にしたい場合：書き出し設定で<strong>ビットレート</strong>を元の80%以上に、解像度はそのまま、形式は H.264 を選択してください。"},
+    {q:"ボーカル除去の効果が思ったようにいきません",a:"AI 分離アルゴリズムの特性上、完全ミックスされた楽曲は完全分離できません。ステレオ音源を推奨します。"},
+    {q:"処理後ファイルの保存先は？",a:"アプリのサンドボックス内に保存されます。手動でファイル/写真へ保存してください。アンインストールするとデータは消去されます。"},
+    {q:"アプリがクラッシュする",a:"iOSを最新版にアップデートしてください。巨大ファイルはメモリ不足で落ちるのでファイル分割を試してください。"},
+    {q:"返金申請はどうする？",a:"アプリ内課金の返金はAppleが処理します。<a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a>から申請してください。開発者に返金権限はありません。<a href='"+URL_SUBSCRIPTION+"' target='_blank'>サブスクリプション利用規約</a>を参照。"},
+    {q:"機種変更後Proが使えない",a:"「購入を復元(Restore Purchase)」を押し、購入時のAppleアカウントでログインしてください。"}
   ],
-  subTitle: "サブスクリプションと権限",
-  subLines: [
+  subTitle: "サブスクリプションについて",
+  subLines:[
     "<strong>無料版：</strong>基本的な変換が可能、書き出しにウォーターマーク、1日の利用回数制限あり。",
-    "<strong>Pro：</strong>全46+ツール解放、ウォーターマークなし、回数制限なし、一括処理・出力設定のカスタマイズ対応。",
-    "<strong>自動更新：</strong>期間終了の24時間前に課金。Apple ID 設定でいつでもキャンセル可能。",
-    "<strong>プライバシーポリシー：</strong><a href='#' onclick=\"showToast('プライバシーポリシーURLを差し替えてください');return false;\">全文を見る</a>"
+    "<strong>Pro：</strong>全プレミアム機能をアンロックします。ウォーターマークなし、回数制限なし、一括処理・出力設定のカスタマイズ対応。",
+    "<strong>自動更新：</strong>期間終了の24時間前に課金。Apple ID設定でいつでもキャンセル可能。",
+    "<strong>プライバシーポリシー：</strong><a href='"+URL_PRIVACY+"' target='_blank'>全文を見る</a>"
   ],
-  privacy: "プライバシーポリシー",
-  terms: "利用規約",
-  contactUs: "お問い合わせ"
+  privacy:"プライバシーポリシー",
+  terms:"利用規約",
+  contactUs:"サブスクリプション利用規約"
 };
-
 I18N["ko"] = {
   langName: "한국어",
   heroTitle: "LumoConvert 지원",
@@ -389,210 +359,210 @@ I18N["ko"] = {
   contactLabel: "도움이 필요하신가요? 이메일을 보내주세요",
   contactBtn: "이메일 보내기 →",
   featTitle: "빠른 가이드",
-  feats: [
-    { icon: "down", title: "영상 압축 / 변환", desc: "비디오 도구 선택 → 파일 가져오기 → 해상도와 비트레이트 조정 → 내보내기. 큰 파일은 앱을 포그라운드에 유지하세요." },
-    { icon: "play", title: "M3U8→MP4 다운로더", desc: "M3U8 URL 붙여넣기 → 다운로드 시작 → MP4로 자동 병합. 백그라운드 다운로드 지원, 끊김 후 재개 가능." },
-    { icon: "music", title: "보컬 제거 / 노래방", desc: "오디오 선택 → 노래 가져오기 → '보컬 제거' 선택 → AI 처리 대기. 처리 시간은 곡 길이의 약 0.5~1배." },
-    { icon: "doc", title: "PDF 변환", desc: "문서 도구 → PDF ↔ Word/Excel/PPT → 가져오기 → 내보내기. 스캔 문서 OCR은 아직 미지원." }
+  faqTitle: "자주 묻는 질문 FAQ",
+  featureCards:[
+    {icon:"down",title:"영상 압축 / 변환",desc:"비디오 도구 선택 → 파일 가져오기 → 해상도와 비트레이트 조정 → 내보내기. 큰 파일은 앱을 포그라운드에 유지하세요."},
+    {icon:"play",title:"M3U8→MP4 다운로더",desc:"M3U8 URL 붙여넣기 → 다운로드 시작 → MP4로 자동 병합. 백그라운드 다운로드 지원, 끊김 후 재개 가능."},
+    {icon:"music",title:"보컬 제거",desc:"오디오 선택 → 노래 가져오기 → '보컬 제거' 선택 → AI 처리 대기. 처리 시간은 곡 길이의 약 0.5~1배."},
+    {icon:"doc",title:"PDF 변환",desc:"문서 도구 → PDF ↔ Word/Excel/PPT → 가져오기 → 내보내기. 스캔 문서 OCR은 아직 미지원."}
   ],
-  faqTitle: "자주 묻는 질문",
-  faqs: [
-    { q: "파일이 서버에 업로드되나요?", a: "<strong>아니요.</strong> 모든 처리는 기기 내장 FFmpeg 엔진으로 로컬에서 실행됩니다. 파일이 외부로 유출되지 않습니다." },
-    { q: "M3U8 다운로드가 실패합니다", a: "다음 순서로 확인하세요：<br>1. M3U8 URL이 유효한지（브라우저에서 재생 가능한지）；<br>2. 일부 사이트는 도난 방지/인증이 필요하므로 앱 내 브라우저에서 페이지를 연 후 캡처；<br>3. 대용량 파일은 안정적인 Wi-Fi 환경에서 다운로드；<br>4. 그래도 실패하면 URL과 오류 화면을 " + EMAIL + " 로 보내주세요." },
-    { q: "압축 후 화질이 떨어집니다", a: "압축률과 파일 크기는 반비례합니다. 고화질을 원한다면: 내보내기 설정에서<strong>비트레이트</strong>를 원본의 80% 이상으로, 해상도는 그대로, 형식은 H.264를 선택하세요." },
-    { q: "보컬 제거 결과가 아쉽습니다", a: "AI 분리 알고리즘의 특성상 다음의 경우 효과가 떨어집니다：<br>· 원본 음질이 좋지 않거나 잔향/현장 노이즈가 있는 경우；<br>· 보컬과 반주가 강하게 믹싱된 라이브 버전；<br>· 하모니나 다성부가 포함된 곡。<br>고음질 음원（320kbps 이상）사용을 권장합니다." },
-    { q: "내보낸 파일은 어디에 저장되나요?", a: "내보내기 후 <strong>사진에 저장</strong>（영상/이미지）、<strong>파일에 저장</strong>（모든 형식）또는 다른 앱으로 <strong>공유</strong>할 수 있습니다. 모든 내보내기 기록은 앱 내 '내보내기 기록'에서 확인하세요." },
-    { q: "큰 영상 처리 시 앱이 튕기거나 느려집니다", a: "4K 또는 긴 영상은 메모리를 많이 사용합니다. 다음을 시도해 보세요：<br>1. 처리 전 다른 백그라운드 앱 종료；<br>2. 긴 영상은 분할하여 처리；<br>3. 출력 해상도 낮추기（예: 1080p）；<br>4. 여유 저장 공간을 파일 크기의 2배 이상 확보." },
-    { q: "Pro 구독 환불은 어떻게 하나요?", a: "구독은 Apple을 통해 처리되므로 환불도 Apple에 요청해야 합니다：<br><a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a> 접속 → Apple ID 로그인 → 해당 구독 찾기 → 환불 요청." },
-    { q: "자동 갱신을 취소하려면?", a: "iPhone에서 <strong>설정 → Apple ID → 구독</strong> → LumoConvert 찾기 → 구독 취소. 취소 후에도 현재 결제 기간이 끝날 때까지 Pro 기능을 사용할 수 있습니다." }
+  faqs:[
+    {q:"파일이 서버로 업로드 되나요?",a:"<strong>아니요.</strong> 모든 처리는 기기 내장 FFmpeg 엔진으로 동작하며 미디어, 문서 파일은 클라우드로 전송되지 않습니다."},
+    {q:"M3U8 다운로드 실패",a:"다음 순서로 확인하세요：<br>1. M3U8 URL이 유효한지（브라우저에서 재생 가능한지）；<br>2. 일부 사이트에서 도용 방지로 차단할 수 있습니다. 앱 내 브라우저로 페이지를 연 뒤 가져오세요；<br>3. 대용량 파일은 안정적인 Wi‑Fi 환경에서 다운로드；<br>4. 그래도 실패하면 URL과 오류 화면을 " + EMAIL + " 로 보내주세요."},
+    {q:"압축 후 화질이 나쁩니다",a:"도구 안에서 비트레이트와 해상도를 수동으로 높여 출력 품질을 개선할 수 있습니다."},
+    {q:"보컬 제거 품질이 좋지 않음",a:"원본 음원에 따라 결과가 달라집니다. 완전히 믹싱된 곡은 완벽 분리가 불가능하며 스테레오 원본을 권장합니다."},
+    {q:"처리된 파일은 어디에 저장되나요?",a:"앱 샌드박스 내부에 저장됩니다. 수동으로 파일/사진 앱에 저장하세요. 앱 삭제 시 모든 데이터가 지워집니다."},
+    {q:"앱이 종료됩니다(크래시)",a:"iOS 최신 버전으로 업데이트하세요. 대용량 파일은 메모리 부족으로 크래시가 발생하니 파일을 분할하여 사용하십시오."},
+    {q:"환불 신청 어떻게 하나요?",a:"인앱 구매 환불은 Apple에서 처리합니다. <a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a>에서 신청하세요. 개발자는 환불 권한이 없습니다. <a href='"+URL_SUBSCRIPTION+"' target='_blank'>구독 서비스 약관</a> 참고."},
+    {q:"기기 변경 후 Pro 기능이 잠김",a:"'구매 복원(Restore Purchase)'을 누르고 구매 당시의 Apple 계정으로 로그인하십시오."}
   ],
   subTitle: "구독 및 권한",
-  subLines: [
+  subLines:[
     "<strong>무료:</strong> 기본 변환 가능, 내보내기 워터마크, 일일 사용 횟수 제한 있음.",
-    "<strong>Pro:</strong> 전체 46+ 도구 잠금 해제, 워터마크 없음, 횟수 제한 없음, 일괄 처리 및 출력 설정 커스텀 지원.",
+    "<strong>Pro:</strong> 모든 프리미엄 기능을 잠금 해제합니다. 워터마크 없음, 횟수 제한 없음, 일괄 처리 및 출력 설정 커스텀 지원.",
     "<strong>자동 갱신:</strong> 기간 종료 24시간 전 자동 결제. Apple ID 설정에서 언제든 취소 가능.",
-    "<strong>개인정보 처리방침:</strong><a href='#' onclick=\"showToast('개인정보 처리방침 URL로 교체하세요');return false;\">전문 보기</a>"
+    "<strong>개인정보 처리방침:</strong><a href='"+URL_PRIVACY+"' target='_blank'>전문 보기</a>"
   ],
-  privacy: "개인정보 처리방침",
-  terms: "서비스 약관",
-  contactUs: "문의하기"
+  privacy:"개인정보 처리방침",
+  terms:"서비스 약관",
+  contactUs:"구독 서비스 약관"
 };
-
-I18N["de"] = {
+I18N["de-DE"] = {
   langName: "Deutsch",
   heroTitle: "LumoConvert Support",
-  heroDesc: "All-in-One-Konverter für Audio, Video, Bilder und Dokumente. 100% lokale Verarbeitung — kein Cloud-Upload.",
+  heroDesc: "All‑in‑One‑Konverter für Audio, Video, Bilder und Dokumente. 100% lokale Verarbeitung — kein Cloud‑Upload.",
   contactLabel: "Brauchen Sie Hilfe? Schreiben Sie uns",
-  contactBtn: "E-Mail senden →",
+  contactBtn: "E‑Mail senden →",
   featTitle: "Kurzanleitungen",
-  feats: [
-    { icon: "down", title: "Video komprimieren / konvertieren", desc: "Videotool wählen → Datei importieren → Auflösung & Bitrate anpassen → exportieren. Bei großen Dateien App im Vordergrund lassen." },
-    { icon: "play", title: "M3U8→MP4 Downloader", desc: "M3U8-Link einfügen → Download starten → automatisch zu MP4 zusammenfügen. Hintergrund-Download unterstützt, bricht nach Verbindungsabbruch ab." },
-    { icon: "music", title: "Vocal-Remover / Karaoke", desc: "Audio wählen → Lied importieren → Vocal-Remover wählen → auf KI-Verarbeitung warten. Dauer ca. 0,5–1× der Liedlänge." },
-    { icon: "doc", title: "PDF-Konverter", desc: "Dokument-Tools → PDF ↔ Word/Excel/PPT → importieren → exportieren. Gescannte PDFs noch nicht per OCR unterstützt." }
+  faqTitle: "Häufig gestellte Fragen FAQ",
+  featureCards:[
+    {icon:"down",title:"Video komprimieren / konvertieren",desc:"Videotool wählen → Datei importieren → Auflösung & Bitrate anpassen → exportieren. Bei großen Dateien App im Vordergrund lassen."},
+    {icon:"play",title:"M3U8 zu MP4 Downloader",desc:"M3U8‑Link einfügen → Download starten → automatisch zu MP4 zusammenfügen. Hintergrund‑Download unterstützt."},
+    {icon:"music",title:"Vocal‑Remover / Karaoke",desc:"Audio wählen → Lied importieren → Vocal‑Remover wählen → auf KI‑Verarbeitung warten. Dauer ca. 0,5‑1× der Liedlänge."},
+    {icon:"doc",title:"PDF‑Konverter",desc:"Dokument‑Tools → PDF ↔ Word/Excel/PPT → importieren → exportieren. Gescannte PDFs noch nicht per OCR unterstützt."}
   ],
-  faqTitle: "Häufige Fragen",
-  faqs: [
-    { q: "Werden meine Dateien auf einen Server hochgeladen?", a: "<strong>Nein.</strong> Alle Verarbeitung erfolgt lokal auf Ihrem Gerät über die eingebaute FFmpeg-Engine. Ihre Dateien verlassen Ihr Handy nie." },
-    { q: "M3U8-Download schlägt fehl. Was tun?", a: "Bitte prüfen Sie der Reihe nach：<br>1. Ist die M3U8-URL gültig (spielt sie im Browser)；<br>2. Manche Seiten nutzen Anti-Leech/Auth — öffnen Sie die Seite zuerst im In-App-Browser；<br>3. Nutzen Sie bei großen Dateien eine stabile WLAN-Verbindung；<br>4. Sendern Sie URL und Fehler-Screenshot an " + EMAIL + "." },
-    { q: "Die Bildqualität nach der Kompression ist schlechter", a: "Komprimierung tauscht Qualität gegen kleinere Dateigröße. Für bessere Qualität: <strong>Bitrate</strong> auf über 80% des Originals setzen, Auflösung beibehalten, Format H.264 wählen." },
-    { q: "Das Ergebnis des Vocal-Removers ist nicht ideal", a: "Die KI-Trennung funktioniert bei folgenden Fällen schlechter：<br>· Schlechtes Quellaudio mit Hall oder Live-Störgeräuschen；<br>· Starke Gesang-Instrumental-Mischung (z.B. Live-Versionen)；<br>· Harmonien oder mehrere Gesangsspuren。<br>Nutzen Sie hochwertiges Audio (320 kbps+) für beste Ergebnisse." },
-    { q: "Wo werden exportierte Dateien gespeichert?", a: "Nach dem Export können Sie zwischen <strong>In Fotos sichern</strong> (Video/Bild), <strong>In Dateien sichern</strong> (jedes Format) oder <strong>Teilen</strong> in andere Apps wählen. Alle Exporte finden Sie im Exportverlauf der App." },
-    { q: "App stürzt oder stockt bei großen Videos", a: "4K oder sehr lange Videos brauchen viel Arbeitsspeicher. Versuchen Sie：<br>1. Andere Apps vor der Verarbeitung schließen；<br>2. Lange Videos in Abschnitten verarbeiten；<br>3. Ausgabauflösung reduzieren (z.B. 1080p)；<br>4. Mindestens den doppelten Dateiumfang freien Speicher sicherstellen." },
-    { q: "Wie bekomme ich eine Rückerstattung für Pro?", a: "Abonnements werden von Apple verwaltet. Rückerstattung über Apple beantragen：<br>Gehen Sie auf <a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a> → mit Apple ID anmelden → Abonnement finden → Rückerstattung beantragen. Apple antwortet in der Regel innerhalb von 48 Stunden." },
-    { q: "Wie kündige ich die automatische Verlängerung?", a: "Gehen Sie auf dem iPhone zu <strong>Einstellungen → Ihre Apple ID → Abonnements</strong> → LumoConvert finden → Abonnement kündigen. Pro-Funktionen bleiben bis zum Ende des aktuellen Zeitraums aktiv." }
+  faqs:[
+    {q:"Werden meine Dateien auf einen Server hochgeladen?",a:"<strong>Nein.</strong> Alle Verarbeitung läuft lokal über FFmpeg auf deinem Gerät. Medien und Dokumente werden nicht hochgeladen."},
+    {q:"M3U8‑Download schlägt fehl?",a:"Prüfe Netzwerk und URL. Einige Websites nutzen Anti‑Leech‑Schutz."},
+    {q:"Schlechte Qualität nach Kompression?",a:"Erhöhe Bitrate und Auflösung im Tool für bessere Ausgabequalität."},
+    {q:"Schlechte Ergebnisse bei Gesangsentfernung?",a:"Das Ergebnis hängt von der Quellaudio‑Datei ab. Vollständig gemischte Lassen sich nicht perfekt trennen."},
+    {q:"Wo werden fertige Dateien gespeichert?",a:"Dateien liegen in der App‑Sandbox. Speichere sie manuell in Dateien / Fotos. Deinstallation löscht alle Sandbox‑Daten."},
+    {q:"App stürzt ab?",a:"Aktualisiere iOS. Sehr große Dateien können Speicherüberlauf verursachen."},
+    {q:"Wie beantrage ich eine Rückerstattung?",a:"Alle In‑App‑Kauf‑Rückerstattungen werden von Apple bearbeitet. <a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a> nutzen."},
+    {q:"Pro‑Funktionen auf neuem Gerät weg?",a:"Tippe auf „Käufe wiederherstellen“ und melde dich mit deinem ursprünglichen Apple‑Account an."}
   ],
   subTitle: "Abo & Zugriff",
-  subLines: [
+  subLines:[
     "<strong>Kostenlos:</strong> Grundlegende Konvertierung mit Wasserzeichen und täglichem Nutzungslimit.",
-    "<strong>Pro:</strong> Alle 46+ Tools freischalten, kein Wasserzeichen, kein Limit, Stapelverarbeitung und benutzerdefinierte Ausgabeparameter.",
-    "<strong>Automatische Verlängerung:</strong> Wird 24 Stunden vor Ablauf berechnet. Jederzeit in den Apple ID-Einstellungen kündbar.",
-    "<strong>Datenschutz:</strong><a href='#' onclick=\"showToast('Durch Datenschutzerklärungs-URL ersetzen');return false;\">Vollständige Datenschutzerklärung ansehen</a>"
+    "<strong>Pro:</strong> Alle 46+ Tools freischalten, kein Wasserzeichen, keine Limits.",
+    "<strong>Automatische Verlängerung:</strong> Wird 24 Stunden vor Ablauf berechnet. Jederzeit in Apple‑ID‑Einstellungen kündbar.",
+    "<strong>Datenschutz:</strong><a href='"+URL_PRIVACY+"' target='_blank'>Vollständige Datenschutzerklärung ansehen</a>"
   ],
-  privacy: "Datenschutz",
-  terms: "Nutzungsbedingungen",
-  contactUs: "Kontakt"
+  privacy:"Datenschutz",
+  terms:"Nutzungsbedingungen",
+  contactUs:"Abonnement‑Vereinbarung"
 };
-
-I18N["fr"] = {
+I18N["fr-FR"] = {
   langName: "Français",
   heroTitle: "Support LumoConvert",
-  heroDesc: "Convertisseur tout-en-un pour audio, vidéo, images et documents. Traitement 100% local — aucun envoi vers le cloud.",
-  contactLabel: "Besoin d'aide ? Écrivez-nous",
-  contactBtn: "Envoyer un e-mail →",
+  heroDesc: "Convertisseur tout‑en‑un pour audio, vidéo, images et documents. Traitement 100% local — aucun envoi vers le cloud.",
+  contactLabel: "Besoin d'aide ? Écrivez‑nous",
+  contactBtn: "Envoyer un e‑mail →",
   featTitle: "Guides rapides",
-  feats: [
-    { icon: "down", title: "Compresser / convertir une vidéo", desc: "Outil vidéo → importer → régler résolution et débit → exporter. Pour les gros fichiers, gardez l'app au premier plan." },
-    { icon: "play", title: "Téléchargeur M3U8→MP4", desc: "Collez l'URL M3U8 → démarrer le téléchargement → fusion automatique en MP4. Téléchargement en arrière-plan, reprise possible après coupure." },
-    { icon: "music", title: "Suppression vocale / karaoké", desc: "Audio → importer le morceau → « Suppression vocale » → attendre le traitement IA. Durée ≈ 0,5 à 1× la longueur du morceau." },
-    { icon: "doc", title: "Convertisseur PDF", desc: "Outils document → PDF ↔ Word/Excel/PPT → importer → exporter. OCR non pris en charge pour les PDFs numérisés." }
+  faqTitle: "Questions fréquentes FAQ",
+  featureCards:[
+    {icon:"down",title:"Compresser / convertir une vidéo",desc:"Outil vidéo → importer → régler résolution et débit → exporter. Pour les gros fichiers, gardez l'app au premier plan."},
+    {icon:"play",title:"Téléchargeur M3U8→MP4",desc:"Collez l'URL M3U8 → démarrer le téléchargement → fusion automatique en MP4."},
+    {icon:"music",title:"Suppression vocale / karaoké",desc:"Audio → importer le morceau → « Suppression vocale » → attendre le traitement IA."},
+    {icon:"doc",title:"Convertisseur PDF",desc:"Outils document → PDF ↔ Word/Excel/PPT → importer → exporter. OCR non pris en charge pour documents scannés."}
   ],
-  faqTitle: "Questions fréquentes",
-  faqs: [
-    { q: "Mes fichiers sont-ils envoyés vers un serveur ?", a: "<strong>Non.</strong> Tout le traitement s'effectue localement sur votre appareil via le moteur FFmpeg intégré. Vos fichiers ne quittent jamais votre téléphone." },
-    { q: "Le téléchargement M3U8 échoue. Que faire ?", a: "Vérifiez dans l'ordre：<br>1. L'URL M3U8 est-elle valide (elle lit dans un navigateur)；<br>2. Certains sites utilisent une protection anti-piratage — ouvrez d'abord la page dans le navigateur intégré；<br>3. Utilisez une connexion Wi-Fi stable pour les gros fichiers；<br>4. Si le problème persiste, envoyez l'URL et une capture d'écran à " + EMAIL + "." },
-    { q: "La qualité vidéo a baissé après compression", a: "La compression compresse la qualité contre la taille. Pour une meilleure qualité：réglez le <strong>débit binaire</strong> au-dessus de 80 % de l'original, conservez la résolution, choisissez H.264." },
-    { q: "Le résultat de la suppression vocale est décevant", a: "La séparation par IA donne de moins bons résultats dans les cas suivants：<br>· Audio source de mauvaise qualité avec réverbération ou bruit de live；<br>· Mixage chant/instrument très serré (versions live)；<br>· Harmonies ou plusieurs voix。<br>Utilisez un audio haute qualité (320 kbps+) pour de meilleurs résultats." },
-    { q: "Où sont enregistrés les fichiers exportés ?", a: "Après l'export, vous pouvez choisir <strong>Enregistrer dans Photos</strong> (vidéo/image), <strong>Enregistrer dans Fichiers</strong> (tout format) ou <strong>Partager</strong> vers d'autres apps. Retrouvez tous les exports dans « Historique des exports »." },
-    { q: "L'app plante ou ralentit sur les grosses vidéos", a: "La 4K ou les très longues vidéos demandent beaucoup de mémoire. Essayez：<br>1. Fermez les autres apps en arrière-plan avant le traitement；<br>2. Traitez les longues vidéos par segments；<br>3. Baissez la résolution de sortie (ex. 1080p)；<br>4. Assurez au moins 2× la taille du fichier en espace libre." },
-    { q: "Comment obtenir un remboursement Pro ?", a: "Les abonnements sont gérés par Apple. Pour demander un remboursement：<br>Rendez-vous sur <a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a> → connectez-vous avec votre identifiant Apple → trouvez l'abonnement → demandez le remboursement. Apple répond généralement sous 48 h." },
-    { q: "Comment résilier le renouvellement automatique ?", a: "Sur votre iPhone, ouvrez <strong>Réglages → votre identifiant Apple → Abonnements</strong> → trouvez LumoConvert → Résilier l'abonnement. Les fonctionnalités Pro restent actives jusqu'à la fin de la période en cours." }
+  faqs:[
+    {q:"Mes fichiers sont‑ils envoyés sur des serveurs ?",a:"<strong>Non.</strong> Tout traitement s’exécute localement via FFmpeg sur votre appareil ; vos médias ne sont jamais téléversés."},
+    {q:"Échec du téléchargement M3U8 ?",a:"Vérifiez réseau et URL. Certains sites utilisent des protections anti‑vol."},
+    {q:"Mauvaise qualité après compression ?",a:"Augmentez manuellement le débit binaire et la résolution dans l’outil pour améliorer le rendu."},
+    {q:"Résultat médiocre sur la suppression de voix ?",a:"Le rendu dépend de la source audio. Les morceaux entièrement mixés ne peuvent pas être séparés parfaitement."},
+    {q:"Où sont stockés les fichiers générés ?",a:"Ils résident dans le bac à sable de l’application. Enregistrez‑les manuellement. La désinstallation efface toutes ces données."},
+    {q:"L’application plante ?",a:"Mettez iOS à jour. Les fichiers très volumineux peuvent causer des manques de mémoire."},
+    {q:"Comment demander un remboursement ?",a:"Tous les remboursements d’achats intégrés sont gérés par Apple. <a href='https://reportaproblem.apple.com' target='_blank'>reportaproblem.apple.com</a>."},
+    {q:"Pro ne fonctionne pas sur mon nouvel appareil ?",a:"Appuyez sur « Restaurer les achats » et connectez‑vous avec votre compte Apple d’origine."}
   ],
   subTitle: "Abonnement & accès",
-  subLines: [
-    "<strong>Gratuit :</strong> Conversion de base avec filigrane et limite quotidienne d'utilisation.",
-    "<strong>Pro :</strong> Débloquez les 46+ outils, sans filigrane, sans limite, traitement par lots et paramètres de sortie personnalisés.",
-    "<strong>Renouvellement automatique :</strong> Facturé 24 h avant la fin de chaque période. Résiliable à tout moment dans les réglages de votre identifiant Apple.",
-    "<strong>Politique de confidentialité :</strong><a href='#' onclick=\"showToast('Remplacer par l\\'URL de la politique de confidentialité');return false;\">Voir la politique complète</a>"
+  subLines:[
+    "<strong>Gratuit:</strong> Conversion de base avec filigrane et limite quotidienne d'utilisation.",
+    "<strong>Pro:</strong> Débloquez l'ensemble des outils premium, sans filigrane, sans limite.",
+    "<strong>Renouvellement automatique:</strong> Facturé 24 h avant la fin. Résiliable dans les réglages identifiant Apple.",
+    "<strong>Politique de confidentialité:</strong><a href='"+URL_PRIVACY+"' target='_blank'>Voir la politique complète</a>"
   ],
-  privacy: "Confidentialité",
-  terms: "Conditions d'utilisation",
-  contactUs: "Nous contacter"
+  privacy:"Confidentialité",
+  terms:"Conditions d'utilisation",
+  contactUs:"Contrat d’abonnement"
 };
 
-// ===== BUILD UI =====
 var ICONS = {
   down: '<svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
   play: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="#5ec8e8" stroke="none"/></svg>',
   music: '<svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
   doc: '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>'
 };
-
-var LANGS = ["zh-CN", "zh-TW", "en", "ja", "ko", "de", "fr"];
+var LANGS = ["zh-CN", "zh-TW", "en-US", "ja", "ko", "de-DE", "fr-FR"];
 var currentLang = "zh-CN";
+var langBarEl = document.getElementById("langBar");
+var featGridEl = document.getElementById("featGrid");
+var faqListEl = document.getElementById("faqList");
+var subBlockEl = document.getElementById("subBlock");
 
-function detectLang() {
-  var nav = (navigator.language || "en").toLowerCase();
-  if (nav.indexOf("zh") === 0) {
-    if (nav.indexOf("tw") > -1 || nav.indexOf("hk") > -1) return "zh-TW";
-    return "zh-CN";
-  }
-  for (var i = 0; i < LANGS.length; i++) {
-    if (nav.indexOf(LANGS[i]) === 0) return LANGS[i];
-  }
-  return "en";
+// build lang buttons
+LANGS.forEach(lang=>{
+  const item = I18N[lang];
+  const btn = document.createElement("button");
+  btn.className = "lang-btn";
+  btn.textContent = item.langName;
+  btn.dataset.lang = lang;
+  btn.onclick = ()=> setLang(lang);
+  langBarEl.appendChild(btn);
+});
+
+function renderFeats(list){
+  let html = "";
+  list.forEach(f=>{
+    html += `<div class="feat">
+      <div class="icon">${ICONS[f.icon]}</div>
+      <h3>${f.title}</h3>
+      <p>${f.desc}</p>
+    </div>`;
+  });
+  return html;
 }
 
-function applyLang(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang === "zh-CN" ? "zh-CN" : lang;
-  var t = I18N[lang];
-
-  // static i18n elements
-  document.querySelectorAll("[data-i18n]").forEach(function(el) {
-    var key = el.getAttribute("data-i18n");
-    if (t[key] !== undefined) el.textContent = t[key];
+function renderFaqs(list){
+  let html = "";
+  list.forEach(f=>{
+    html += `<div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <span>${f.q}</span>
+        <span class="arrow">▼</span>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">${f.a}</div>
+      </div>
+    </div>`;
   });
+  return html;
+}
+
+function setLang(langKey){
+  currentLang = langKey;
+  const t = I18N[langKey] ?? I18N["en-US"];
+  document.documentElement.lang = langKey;
+  document.title = t.heroTitle + " | LumoConvert";
+
+  // lang button active
+  document.querySelectorAll(".lang-btn").forEach(b=>{
+    b.classList.toggle("active", b.dataset.lang === langKey);
+  });
+
+  document.querySelector(".hero h1").textContent = t.heroTitle;
+  document.querySelector(".hero p").innerHTML = t.heroDesc;
+  document.querySelector(".contact-bar .label").textContent = t.contactLabel;
+  document.querySelector(".contact-bar a").textContent = t.contactBtn;
 
   // features
-  var fg = document.getElementById("featGrid");
-  fg.innerHTML = "";
-  t.feats.forEach(function(f) {
-    var div = document.createElement("div");
-    div.className = "feat";
-    div.innerHTML = '<div class="icon">' + ICONS[f.icon] + '</div><h3></h3><p></p>';
-    div.querySelector("h3").textContent = f.title;
-    div.querySelector("p").textContent = f.desc;
-    fg.appendChild(div);
-  });
+  featGridEl.innerHTML = renderFeats(t.featureCards);
 
-  // FAQ
-  var fl = document.getElementById("faqList");
-  fl.innerHTML = "";
-  t.faqs.forEach(function(f) {
-    var item = document.createElement("div");
-    item.className = "faq-item";
-    item.innerHTML = '<div class="faq-q" onclick="toggleFaq(this)"><span class="qtext"></span><span class="arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner"></div></div>';
-    item.querySelector(".qtext").textContent = f.q;
-    item.querySelector(".faq-a-inner").innerHTML = f.a;
-    fl.appendChild(item);
-  });
+  // faq
+  faqListEl.innerHTML = renderFaqs(t.faqs);
 
   // subscription block
-  var sb = document.getElementById("subBlock");
-  sb.innerHTML = "";
-  t.subLines.forEach(function(line) {
-    var p = document.createElement("p");
-    p.innerHTML = line;
-    sb.appendChild(p);
-  });
+  let subHtml = "";
+  t.subLines.forEach(line=> subHtml += "<p>"+line+"</p>");
+  subBlockEl.innerHTML = subHtml;
 
-  // lang buttons
-  var lb = document.getElementById("langBar");
-  lb.innerHTML = "";
-  LANGS.forEach(function(l) {
-    var b = document.createElement("button");
-    b.className = "lang-btn" + (l === lang ? " active" : "");
-    b.textContent = I18N[l].langName;
-    b.onclick = function() { applyLang(l); };
-    lb.appendChild(b);
-  });
+  // footer i18n
+  const footerLinks = document.querySelectorAll("footer .links a");
+  footerLinks[0].textContent = t.privacy;
+  footerLinks[1].textContent = t.terms;
+  footerLinks[2].textContent = t.contactUs;
 
-  // title
-  document.title = "LumoConvert · " + t.heroTitle;
+  localStorage.setItem("support_lang", langKey);
 }
 
-function toggleFaq(el) {
-  el.parentElement.classList.toggle("open");
-}
-
-function showToast(msg) {
-  var t = document.getElementById("toast");
-  if (!t) {
-    t = document.createElement("div");
-    t.id = "toast";
-    t.style.cssText = "position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#2a2a3a;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.4);transition:opacity 0.3s;";
-    document.body.appendChild(t);
+function detectBrowserLang(){
+  const nav = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+  if(nav.startsWith("zh")){
+    if(nav.includes("tw") || nav.includes("hk")) return "zh-TW";
+    return "zh-CN";
   }
-  t.textContent = msg;
-  t.style.opacity = "1";
-  clearTimeout(t._timer);
-  t._timer = setTimeout(function(){ t.style.opacity = "0"; }, 2200);
+  for(let l of LANGS){
+    if(nav.startsWith(l.toLowerCase())) return l;
+  }
+  return "en-US";
 }
 
-// init
-applyLang(detectLang());
+(function init(){
+  const saved = localStorage.getItem("support_lang");
+  const initLang = (saved && I18N[saved]) ? saved : detectBrowserLang();
+  setLang(initLang);
+})();
 </script>
-
 </body>
 </html>
